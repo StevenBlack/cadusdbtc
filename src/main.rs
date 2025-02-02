@@ -25,7 +25,7 @@ async fn fetch_and_log() {
         Ok(response) => {
             if let Ok(json) = response.text().await {
                 let now = Local::now();
-                let log_entry = format!("{} - {}\n", now.to_rfc3339(), json);
+                let log_entry = format!("{},{}\n", now.to_rfc3339(), json);
                 println!("{}", log_entry);
                 let mut file = OpenOptions::new()
                     .append(true)
