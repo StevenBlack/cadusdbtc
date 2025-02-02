@@ -10,7 +10,7 @@ async fn main() {
 
     // sec   min   hour   day of month   month   day of week
     // *     *     *      *              *       *
-    let _ = sched.add(Job::new_async("* */30 * * * *", |_uuid, _l| {
+    let _ = sched.add(Job::new_async("0 */30 * * * *", |_uuid, _l| {
         Box::pin(async {
             fetch_and_log().await;
         })
